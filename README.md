@@ -8,7 +8,7 @@
 * 将文件夹内的文件打包成压缩文件，并重命名为*.nw
 * 将*.nw复制到和nw.exe同级目录下，运行
 ```
-copy /b *.nw+nw.exe *.exe
+copy /b nw.exe+*.nw *.exe
 ```
 * 双击*.exe即可运行程序
 
