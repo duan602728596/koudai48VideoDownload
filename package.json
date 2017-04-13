@@ -5,7 +5,7 @@
   "nodejs": true,
   "window": {
     "icon": "image/i.jpg",
-    "title": "口袋48视频回放查看及下载（测试版v 0.1.0）",
+    "title": "口袋48视频回放查看及下载（测试版 v0.1.0）",
     "position": "center",
     "toolbar": true,
     "frame": true,
