@@ -1,0 +1,25 @@
+.index-app { padding-top: 52px; }
+/* 顶部工具栏 */
+.index-tools { position: fixed; z-index: 1; top: 0; left: 0; right: 0; padding: 10px; height: 50px;
+    border-bottom: 1px solid #246395; background-color: #fff; }
+/* 表格显示数据 */
+.index-table-td0 { width: 10%; }
+.index-table-td1 { width: 15%; }
+.index-table-td2 { width: 40%; }
+.index-table-td3 { width: 20%; }
+.index-table-td4 { width: 15%; }
+.index-searchGroup .index-searchInput { width: 400px; }
+/* 弹出层 */
+.index-layout { position: fixed; z-index: 2; top: 0; left: 0; right: 0; bottom: 0;
+    background-color: rgba(0, 0, 0, .8); }
+/* 视频展示 */
+.index-videoBox, .index-videoClose { position: absolute; top: 0; bottom: 0; }
+.index-videoBox {  left: 0; z-index: 3; }
+.index-videoClose { right: 0; padding: 10px; z-index: 4; }
+/* loading */
+.index-loadingText { position: absolute; left: 0; right: 0; top: 50%; margin-top: -45px; height: 50px;
+    font-size: 16px; color: #fff; }
+.index-loadingIcon { width: 50px; height: 50px; fill: #fff; animation-name: loading; animation-duration: 3s;
+    animation-timing-function: linear; animation-iteration-count: infinite; }
+@keyframes loading { from { transform: rotate(0deg); } to { transform: rotate(359deg); } }
+.index-tishi { margin-left: 10px; vertical-align: 18px; }

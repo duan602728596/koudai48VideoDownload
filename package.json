@@ -1,0 +1,23 @@
+{
+  "main": "view/index.html",
+  "name": "koudai48shipinzhuaqu",
+  "version": "0.1.0",
+  "nodejs": true,
+  "window": {
+    "icon": "image/i.jpg",
+    "title": "口袋48视频回放查看及下载（测试版v 0.1.0）",
+    "position": "center",
+    "toolbar": true,
+    "frame": true,
+    "width": 1200,
+    "height": 600,
+    "fullscreen": false,
+    "show_in_taskbar": true
+  },
+  "scripts": {
+    "start": "nw --remote-debugging-port=9222"
+  },
+  "dependencies": {
+    "nodegrass": "^0.0.3"
+  }
+}
