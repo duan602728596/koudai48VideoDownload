@@ -1,5 +1,5 @@
 Promise.all([
-    System.import('../script/Common/vue.min.js'),
+    System.import('https://cdn.bootcss.com/vue/2.2.6/vue.min.js'),
     System.import('../script/modules/date.js'),
     System.import('../script/modules/post.js')
 ]).then(function (modules){
@@ -8,14 +8,18 @@ Promise.all([
     const App = new Vue({
         el: '#app',
         data: {
+            /* 数据查询相关 */
             startTime: 0,          // 时间
             reviewList: [],        // 数据
-            videoSrc: null,       // 视频地址
             loading: false,       // 加载动画
+            /* 视频相关 */
+            videoData: null,
+            /* 表单查询功能 */
             inputText: '',        // 表单输入的文字
             keywords: []          // 关键字
         },
         methods: {
+            /* 数据加载 */
             // date
             date: date,
             /* 列表 */
@@ -44,18 +48,20 @@ Promise.all([
                     _this.loading = false;
                 });
             },
+            /* 视频播放 */
             // 打开播放页面
-            goToPlay(event, streamPath){
-                this.videoSrc = streamPath;
+            goToPlay(event, item){
+                this.videoData = item;
             },
             // 关闭播放
             videoClose(event){
-                this.videoSrc = null;
+                this.videoData = null;
             },
             // 搜索框文本改变
             keywordsChange(event){
                 this.inputText = event.target.value;
             },
+            /* 搜索 */
             // 搜索
             search(event){
                 if(/^\s*$/.test(this.inputText)){
@@ -69,6 +75,11 @@ Promise.all([
                 if(event.keyCode === 13){
                     this.search.call(this, event);
                 }
+            },
+            // 重置
+            reset(event){
+                this.inputText = '';
+                this.keywords = [];
             },
             // 过滤
             guoLv(text){
@@ -88,6 +99,9 @@ Promise.all([
                 }
 
                 return r;
+            },
+            /* 下载 */
+            download(event, item){
             }
         }
     });

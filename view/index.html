@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="../style/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="../style/index.css" rel="stylesheet">
-    <script>require('nw.gui').Window.get().maximize();// 全屏</script>
 </head>
 <body>
 <div class="index-app" id="app">
@@ -15,8 +14,9 @@
         <div class="pull-left form-inline index-searchGroup">
             <label for="searchName">搜索已加载列表：</label>
             <input class="form-control index-searchInput" type="text" id="searchName" placeholder="多个关键字用空格分割"
-                   v-on:input="keywordsChange($event)" v-on:keydown="searchEnter($event)">
+                   v-bind:value="inputText" v-on:input="keywordsChange($event)" v-on:keydown="searchEnter($event)">
             <input class="btn btn-default" type="button" value="搜索" v-on:click="search($event)">
+            <input class="btn btn-default" type="button" value="重置" v-on:click="reset($event)">
         </div>
         <!-- 加载和刷新 -->
         <div class="pull-right">
@@ -25,42 +25,54 @@
         </div>
     </div>
     <!-- 表格显示数据 -->
-    <table class="table table-hover index-table">
-        <thead>
-            <tr>
-                <th class="index-table-td0">序号</th>
-                <th class="index-table-td1">直播间</th>
-                <th class="index-table-td2">直播标题</th>
-                <th class="index-table-td3">开始时间</th>
-                <th class="index-table-td4">操作</th>
-            </tr>
-        </thead>
-        <tbody v-for="(item, index) in reviewList" :key="index">
-            <tr v-if="guoLv(item.title) === true">
-                <td>{{ index }}</td>
-                <td>{{ item.title }}</td>
-                <td>
-                    <a target="_blank" v-bind:href="item.streamPath" v-bind:title="item.streamPath">{{ item.subTitle }}</a>
-                </td>
-                <td>{{ date(item.startTime) }}</td>
-                <td>
-                    <input class="btn btn-default btn-sm" type="button" value="查看" v-on:click="goToPlay($event, item.streamPath)">
-                    <a class="btn btn-default btn-sm" v-bind:href="item.streamPath" v-bind:download="item.title + ' ' + date(item.startTime)">下载</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="index-dataBox">
+        <table class="table table-bordered table-hover table-condensed index-table">
+            <thead>
+                <tr class="info">
+                    <th class="index-table-td0">序号</th>
+                    <th class="index-table-td1">直播间</th>
+                    <th class="index-table-td2">直播标题</th>
+                    <th class="index-table-td3">开始时间</th>
+                    <th class="index-table-td4">操作</th>
+                </tr>
+            </thead>
+            <tbody v-for="(item, index) in reviewList" :key="index">
+                <tr v-if="guoLv(item.title) === true">
+                    <td>{{ index }}</td>
+                    <td>{{ item.title }}</td>
+                    <td>
+                        <a target="_blank" v-bind:href="item.streamPath" v-bind:title="item.streamPath">{{ item.subTitle }}</a>
+                    </td>
+                    <td>{{ date(item.startTime) }}</td>
+                    <td>
+                        <input class="btn btn-default btn-sm" type="button" value="查看" v-on:click="goToPlay($event, item)">
+                        <a class="btn btn-default btn-sm" v-bind:href="item.streamPath" v-bind:download="item.title + ' ' + date(item.startTime)">下载</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
     <!-- 视频展示 -->
-    <div class="index-layout" v-if="videoSrc !== null">
+    <div class="index-layout" v-if="videoData !== null">
         <div class="index-videoBox">
             <video height="100%" controls>
-                <source type="video/mp4" v-bind:src="videoSrc" >
-                <source type="video/ogg" v-bind:src="videoSrc" >
-                <source type="video/webm" v-bind:src="videoSrc" >
+                <source type="video/mp4" v-bind:src="videoData.streamPath" >
+                <source type="video/ogg" v-bind:src="videoData.streamPath" >
+                <source type="video/webm" v-bind:src="videoData.streamPath" >
             </video>
         </div>
         <div class="index-videoClose">
-            <input class="btn btn-danger" type="button" value="关闭" v-on:click="videoClose($event)">
+            <div class="clearfix">
+                <input class="pull-right btn btn-danger" type="button" value="关闭" v-on:click="videoClose($event)">
+            </div>
+            <div class="index-videoData">
+                <h4>视频信息</h4>
+                <p><b>liveId：</b>{{ videoData.liveId }}</p>
+                <p><b>title：</b>{{ videoData.title }}</p>
+                <p><b>subTitle：</b>{{ videoData.subTitle }}</p>
+                <p><b>streamPath：</b>{{ videoData.streamPath }}</p>
+                <p><b>startTime：</b>{{ videoData.startTime }}</p>
+            </div>
         </div>
     </div>
     <!-- loading -->

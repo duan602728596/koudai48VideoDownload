@@ -1,5 +1,5 @@
 {
-  "main": "view/index.html",
+  "main": "./view/index.html",
   "name": "koudai48shipinzhuaqu",
   "version": "0.1.2",
   "nodejs": true,

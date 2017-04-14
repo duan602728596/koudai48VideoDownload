@@ -1,3 +1,4 @@
+/* 获取数据 */
 const nodegrass = node_require('nodegrass');
 
 const url = 'https://plive.48.cn/livesystem/api/live/v1/memberLivePage';
@@ -21,7 +22,7 @@ function postData(number = 0){
 /* post请求 */
 function post(number, callback){
     nodegrass.post(url, (data, status, headers)=>{
-        
+
         callback(data, status, headers);
 
     }, headers, postData(number));
