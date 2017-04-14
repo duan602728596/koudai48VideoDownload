@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="../style/bootstrap.min.css" rel="stylesheet">
     <link href="../style/index.css" rel="stylesheet">
+    <script>require('nw.gui').Window.get().maximize();// 全屏</script>
 </head>
 <body>
 <div class="index-app" id="app">
@@ -12,7 +13,7 @@
     <div class="index-tools clearfix">
         <!-- 关键字搜索 -->
         <div class="pull-left form-inline index-searchGroup">
-            <label for="searchName">搜索已加载列表</label>
+            <label for="searchName">搜索已加载列表：</label>
             <input class="form-control index-searchInput" type="text" id="searchName" placeholder="多个关键字用空格分割"
                    v-on:input="keywordsChange($event)" v-on:keydown="searchEnter($event)">
             <input class="btn btn-default" type="button" value="搜索" v-on:click="search($event)">
@@ -28,8 +29,8 @@
         <thead>
             <tr>
                 <th class="index-table-td0">序号</th>
-                <th class="index-table-td1">标题</th>
-                <th class="index-table-td2">视频地址</th>
+                <th class="index-table-td1">直播间</th>
+                <th class="index-table-td2">直播标题</th>
                 <th class="index-table-td3">开始时间</th>
                 <th class="index-table-td4">操作</th>
             </tr>
@@ -39,7 +40,7 @@
                 <td>{{ index }}</td>
                 <td>{{ item.title }}</td>
                 <td>
-                    <a target="_blank" v-bind:href="item.streamPath">{{ item.streamPath }}</a>
+                    <a target="_blank" v-bind:href="item.streamPath" v-bind:title="item.streamPath">{{ item.subTitle }}</a>
                 </td>
                 <td>{{ date(item.startTime) }}</td>
                 <td>
