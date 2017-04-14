@@ -46,9 +46,8 @@
                     <td>{{ date(item.startTime) }}</td>
                     <td>
                         <input class="btn btn-default btn-sm" type="button" value="查看" v-on:click="goToPlay($event, item)">
-                        <a class="btn btn-default btn-sm" v-bind:data-href="item.streamPath"
-                           v-bind:data-download="item.title + ' ' + date(item.startTime)"
-                           v-on:click="download($event, item)">下载</a>
+                        <a class="btn btn-default btn-sm" v-bind:href="item.streamPath"
+                           v-bind:download="item.title + ' ' + date(item.startTime)">下载</a>
                     </td>
                 </tr>
             </tbody>
