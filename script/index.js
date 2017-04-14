@@ -20,10 +20,11 @@ Promise.all([
             date: date,
             /* 列表 */
             // 加载列表
-            loadingReviewList(){
+            loadingReviewList(event){
                 const _this = this;
                 this.loading = true;
-                post(this.startTime, function(jsonData){
+                post(this.startTime, function(data, status, headers){
+                    const jsonData = JSON.parse(data, null, 4);
                     const newList = _this.reviewList.concat(jsonData.content.reviewList);
                     _this.reviewList = newList;
                     _this.startTime = newList[newList.length - 1].startTime;
@@ -31,11 +32,12 @@ Promise.all([
                 });
             },
             // 刷新列表
-            reloadReviewList(){
+            reloadReviewList(event){
                 const _this = this;
                 this.loading = true;
                 this.reviewList = [];
-                post(0, function(jsonData){
+                post(0, function(data, status, headers){
+                    const jsonData = JSON.parse(data, null, 4);
                     const newList = _this.reviewList.concat(jsonData.content.reviewList);
                     _this.reviewList = newList;
                     _this.startTime = newList[newList.length - 1].startTime;
@@ -43,11 +45,11 @@ Promise.all([
                 });
             },
             // 打开播放页面
-            goToPlay(streamPath){
+            goToPlay(event, streamPath){
                 this.videoSrc = streamPath;
             },
             // 关闭播放
-            videoClose(){
+            videoClose(event){
                 this.videoSrc = null;
             },
             // 搜索框文本改变
@@ -55,11 +57,17 @@ Promise.all([
                 this.inputText = event.target.value;
             },
             // 搜索
-            search(){
+            search(event){
                 if(/^\s*$/.test(this.inputText)){
                     this.keywords = [];
                 }else{
                     this.keywords = this.inputText.split(/\s+/);
+                }
+            },
+            // 回车
+            searchEnter(event){
+                if(event.keyCode === 13){
+                    this.search.call(this, event);
                 }
             },
             // 过滤
