@@ -99,9 +99,6 @@ Promise.all([
                 }
 
                 return r;
-            },
-            /* 下载 */
-            download(event, item){
             }
         }
     });
