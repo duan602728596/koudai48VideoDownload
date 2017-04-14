@@ -1,7 +1,7 @@
 {
   "main": "view/index.html",
   "name": "koudai48shipinzhuaqu",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "nodejs": true,
   "window": {
     "icon": "image/i.jpg",
