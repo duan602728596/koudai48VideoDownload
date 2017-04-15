@@ -16,7 +16,10 @@ Promise.all([
             videoData: null,
             /* 表单查询功能 */
             inputText: '',        // 表单输入的文字
-            keywords: []          // 关键字
+            keywords: [],          // 关键字
+            /* 下载列表显示隐藏 */
+            downloadDisplay: false,
+            downloadList: window._shareData.downloadList
         },
         methods: {
             /* 数据加载 */
@@ -64,10 +67,16 @@ Promise.all([
             /* 搜索 */
             // 搜索
             search(event){
+                let kg;
                 if(/^\s*$/.test(this.inputText)){
-                    this.keywords = [];
+                    kg = [];
                 }else{
-                    this.keywords = this.inputText.split(/\s+/);
+                    kg = this.inputText.split(/\s+/);
+                }
+
+                this.keywords = [];
+                for(let i = 0, j = kg.length; i < j; i++){
+                    this.keywords.push(new RegExp(`.*${ kg[i] }.*`));
                 }
             },
             // 回车
@@ -90,8 +99,7 @@ Promise.all([
                     r = true;
                 }else{
                     for(let i = 0, j = length; i < j; i++){
-                        const reg = new RegExp(`.*${ this.keywords[i] }.*`);
-                        if(reg.test(text)){
+                        if(this.keywords[i].test(text)){
                             r = true;
                             break;
                         }
@@ -99,6 +107,51 @@ Promise.all([
                 }
 
                 return r;
+            },
+            /* 下载 */
+            downloadOpen(event){
+                this.downloadDisplay = true;
+            },
+            downloadClose(event){
+                this.downloadDisplay = false;
+            },
+            download(item){
+
+                const f = item.title + ' ' + date(item.startTime).replace(/\:/g, '-') + '.mp4';
+                const options = {
+                    url: item.streamPath,
+                    filename: f,
+                    conflictAction: 'prompt',
+                    saveAs: true,
+                    method: 'GET'
+                };
+
+                chrome.downloads.download(options, (dlId)=>{
+                    this.downloadList.push({
+                        id: dlId,
+                        infor: item,
+                        filename: f,
+                        fileSize: 1,
+                        nowSize: 0,
+                        timer: null,
+                        current: null,
+                        state: 0
+                    });
+                });
+            },
+            cancel(index, item){
+                chrome.downloads.cancel(item.id);
+            },
+            progress(item){
+                return (item.nowSize / item.fileSize).toFixed(2);
+            },
+            style(item){
+                const s = this.progress(item);
+                return `width: ${ s * 100 }%;`;
+            },
+            progressText(item){
+                const s = this.progress(item);
+                return `${ s * 100 }`.split('.')[0];
             }
         }
     });
