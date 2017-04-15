@@ -60,10 +60,5 @@
     chrome.downloads.onCreated.addListener((infor)=>{
         map.set(infor.id, infor.fileSize);
     });
-
-    chrome.downloads.onErased.addListener((infor)=>{
-        console.log(infor);
-    });
-
-
+	
 })(window);
