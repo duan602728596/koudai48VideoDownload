@@ -116,7 +116,6 @@ Promise.all([
                 this.downloadDisplay = false;
             },
             download(item){
-
                 const f = item.title + ' ' + date(item.startTime).replace(/\:/g, '-') + '.mp4';
                 const options = {
                     url: item.streamPath,
@@ -135,11 +134,13 @@ Promise.all([
                         nowSize: 0,
                         timer: null,
                         current: null,
-                        state: 0
+                        state: 0,
+                        create: true
                     });
                 });
             },
             cancel(index, item){
+                item.state = 3;
                 chrome.downloads.cancel(item.id);
             },
             progress(item){
