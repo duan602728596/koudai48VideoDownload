@@ -4,7 +4,6 @@
   "version": "1.0.1",
   "nodejs": true,
   "window": {
-    "icon": "../icon.jpg",
     "title": "口袋48视频回放查看及下载（v1.0.1）",
     "position": "center",
     "toolbar": true,
