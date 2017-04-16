@@ -13,9 +13,7 @@
     "fullscreen": false,
     "show_in_taskbar": true
   },
-  "webkit": {
-    "page-cache": "false"
-  },
+  "webkit": {},
   "scripts": {
     "start": "nw --remote-debugging-port=9222"
   },
