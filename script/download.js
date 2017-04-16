@@ -5,9 +5,10 @@
  * 已完成：2
  * 已取消：3
  */
+
 ((_window)=>{
     const fs = node_require('fs');
-    const downloadList = window._shareData.downloadList;
+    const downloadList = _window._shareData.downloadList;
     const T = 1000;
     const map = new Map();
 
