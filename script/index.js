@@ -60,11 +60,11 @@ Promise.all([
             videoClose(event){
                 this.videoData = null;
             },
+            /* 搜索 */
             // 搜索框文本改变
             keywordsChange(event){
                 this.inputText = event.target.value;
             },
-            /* 搜索 */
             // 搜索
             search(event){
                 let kg;
