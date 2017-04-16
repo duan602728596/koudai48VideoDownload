@@ -49,8 +49,8 @@
                     <th class="index-table-td4">操作</th>
                 </tr>
             </thead>
-            <tbody v-for="(item, index) in reviewList" :key="index">
-                <tr v-if="guoLv(item.title) === true">
+            <tbody>
+                <tr v-for="(item, index) in reviewList" :key="index" v-if="guoLv(item.title) === true">
                     <td>{{ index }}</td>
                     <td>{{ item.title }}</td>
                     <td>

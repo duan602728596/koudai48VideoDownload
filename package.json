@@ -1,10 +1,10 @@
 {
   "main": "./view/index.html",
   "name": "koudai48shipinzhuaqu",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "nodejs": true,
   "window": {
-    "title": "口袋48视频回放查看及下载（v1.0.1）",
+    "title": "口袋48视频回放查看及下载（v1.0.2）",
     "position": "center",
     "toolbar": true,
     "frame": true,
