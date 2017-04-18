@@ -11,11 +11,11 @@ Promise.all([
             /* 数据查询相关 */
             startTime: 0,          // 时间
             reviewList: [],        // 数据
-            loading: false,       // 加载动画
+            loading: false,        // 加载动画
             /* 视频相关 */
             videoData: null,
             /* 表单查询功能 */
-            inputText: '',        // 表单输入的文字
+            inputText: '',         // 表单输入的文字
             keywords: [],          // 关键字
             /* 下载列表显示隐藏 */
             downloadDisplay: false,
