@@ -112,7 +112,7 @@ class Index extends Component{
     }
     // 下载
     download(item, event){
-        const f = item.title + ' ' + date(item.startTime).replace(/\:/g, '-') + '.mp4';
+        const f = item.title + '_' + date(item.startTime).replace(/\:/g, '-') + '.mp4';
         const options = {
             url: item.streamPath,
             filename: f,
