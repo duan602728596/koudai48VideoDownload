@@ -30,9 +30,9 @@
     "gulp-uglify": "^1.5.3",
     "gulp-utf8-convert": "^0.0.7",
     "nodegrass": "^0.0.3",
-    "react": "^15.4.2",
-    "react-dom": "^15.4.2",
-    "react-router-dom": "^4.0.0",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4",
+    "react-router-dom": "^4.1.1",
     "redux": "^3.6.0"
   }
 }
