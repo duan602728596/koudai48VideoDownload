@@ -12,7 +12,7 @@ function date(time){
     const _6 = date.getMinutes();   // 获取分钟数(0-59)
     const _7 = date.getSeconds();   // 获取秒数(0-59)
 
-    return `${ buwei(_1) }-${ buwei(_2 + 1) }-${ buwei(_3) } ${ buwei(_5) }:${ buwei(_6) }:${ buwei(_7) }`;
+    return `${ buwei(_1) }-${ buwei(_2 + 1) }-${ buwei(_3) }_${ buwei(_5) }:${ buwei(_6) }:${ buwei(_7) }`;
 }
 
 module.exports = date;
