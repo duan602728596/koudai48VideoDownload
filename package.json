@@ -14,7 +14,7 @@
     "show_in_taskbar": true
   },
   "scripts": {
-    "start": "webpack --config webpack.dev.js -w- d",
+    "start": "webpack --config webpack.dev.js -w -d",
     "build": "webpack --config webpack.pro.js"
   },
   "dependencies": {
