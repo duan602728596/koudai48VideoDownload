@@ -1,4 +1,4 @@
-const store = require('./store.js');
+const store = require('./store');
 
 /* 谷歌事件初始化 */
 function chromeDownloadInit(shareData){

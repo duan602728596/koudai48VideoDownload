@@ -1,4 +1,4 @@
-const Redux = node_require('redux');
+const Redux = require('redux');
 const { createStore } = Redux;
 // 加载列表
 function loadingReviewList(state, action){

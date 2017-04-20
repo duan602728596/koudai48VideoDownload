@@ -1,10 +1,10 @@
 {
-  "main": "./build/view/index.html",
+  "main": "./view/index.html",
   "name": "koudai48shipinzhuaqu",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "nodejs": true,
   "window": {
-    "title": "口袋48视频回放查看及下载（v2.0.0）",
+    "title": "口袋48视频回放查看及下载（v2.0.1）",
     "position": "center",
     "toolbar": true,
     "frame": true,
@@ -13,26 +13,26 @@
     "fullscreen": false,
     "show_in_taskbar": true
   },
+  "scripts": {
+    "start": "webpack --config webpack.dev.js -w- d",
+    "build": "webpack --config webpack.pro.js"
+  },
   "dependencies": {
-    "del-gulpsass-blank-lines": "^0.1.3",
-    "gulp": "github:gulpjs/gulp#4.0",
-    "gulp-babel": "^6.1.2",
-    "gulp-bom": "^1.0.0",
-    "gulp-changed": "^1.3.1",
-    "gulp-imagemin": "^2.4.0",
-    "gulp-notify": "^2.2.0",
-    "gulp-plumber": "^1.1.0",
-    "gulp-prettify": "^0.4.0",
-    "gulp-pug": "^3.0.3",
-    "gulp-react": "^3.1.0",
-    "gulp-sass": "^3.0.0",
-    "gulp-sourcemaps": "^1.9.1",
-    "gulp-uglify": "^1.5.3",
-    "gulp-utf8-convert": "^0.0.7",
+    "babel-core": "^6.24.1",
+    "babel-loader": "^6.4.1",
+    "babel-preset-react": "^6.23.0",
+    "happypack": "^3.0.3",
+    "node-sass": "^4.5.2",
     "nodegrass": "^0.0.3",
+    "raw-loader": "^0.5.1",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-router-dom": "^4.1.1",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.16.0",
+    "uglify-js": "git://github.com/mishoo/UglifyJS2#harmony",
+    "webpack": "^2.4.1",
+    "webpack-uglify-parallel": "^0.1.3"
   }
 }

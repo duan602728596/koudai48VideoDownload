@@ -1,8 +1,8 @@
-const React = node_require('react');
-const ReactRouterDom = node_require('react-router-dom');
+const React = require('react');
+const ReactRouterDom = require('react-router-dom');
 const { Component } = React;
 const { Link } = ReactRouterDom;
-const store = require('./store.js');
+
 
 class Video extends Component{
     render(){
