@@ -1,5 +1,6 @@
 const Redux = require('redux');
 const { createStore } = Redux;
+
 // 加载列表
 function loadingReviewList(state, action){
     const reviewList = action.list.content.reviewList;

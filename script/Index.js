@@ -3,8 +3,8 @@ const ReactRouterDom = require('react-router-dom');
 const { Component } = React;
 const { Link } = ReactRouterDom;
 const store = require('./store.js');
-const date = require('./modules/date.js');
-const post = require('./modules/post.js');
+const date = require('./modules/date');
+const post = require('./modules/post');
 
 
 class Loading extends Component{
