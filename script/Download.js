@@ -39,7 +39,7 @@ class Progress extends Component{
       _this: this,
       index: this.props.index,
       T: T,
-      callback: (x) => {
+      callback: (x)=>{
         this.setState({
           w: style(x),
           t: progressText(x)
@@ -88,7 +88,7 @@ class Progress extends Component{
                role="progressbar"
                aria-valuenow={ this.state.t }
                aria-valuemin="0"
-               aria-valuemax="100"/>
+               aria-valuemax="100" />
         </div>
         <b className="pull-right download-progressNumber">{ this.state.t }%</b>
       </div>
@@ -127,7 +127,7 @@ class Download extends Component{
       case 1:
         return (
             <button className="btn btn-danger btn-sm" onClick={ this.onCancel.bind(this, item) }>
-              <span className="glyphicon glyphicon-remove-circle index-icon"/>
+              <span className="glyphicon glyphicon-remove-circle index-icon" />
               <span>取消下载</span>
             </button>
         );
@@ -150,7 +150,7 @@ class Download extends Component{
             <td colSpan="4">
               <Progress item={ item }
                         index={ index }
-                        chromeCallback={ chromeCallback }/>
+                        chromeCallback={ chromeCallback } />
             </td>
           </tr>
         );
@@ -181,7 +181,7 @@ class Download extends Component{
         <header className="bg-warning download-header clearfix">
           <h4 className="pull-left">下载列表：</h4>
           <Link className="pull-right btn btn-danger" to="/">
-            <span className="glyphicon glyphicon-off index-icon">{}</span>
+            <span className="glyphicon glyphicon-off index-icon" />
             <span>关闭</span>
           </Link>
         </header>

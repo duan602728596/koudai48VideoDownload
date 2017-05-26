@@ -12,15 +12,15 @@ class Video extends Component {
           { /* 视频展示 */}
           <div className="index-videoBox">
             <video height="100%" controls>
-              <source src={ item.streamPath } type="video/mp4"/>
-              <source src={ item.streamPath } type="video/ogg"/>
-              <source src={ item.streamPath } type="video/webm"/>
+              <source src={ item.streamPath } type="video/mp4" />
+              <source src={ item.streamPath } type="video/ogg" />
+              <source src={ item.streamPath } type="video/webm" />
             </video>
           </div>
           <div className="index-videoClose">
             <div className="clearfix">
               <Link className="pull-right btn btn-danger" to="/">
-                <span className="glyphicon glyphicon-off index-icon"/>
+                <span className="glyphicon glyphicon-off index-icon" />
                 <span>关闭</span>
               </Link>
             </div>

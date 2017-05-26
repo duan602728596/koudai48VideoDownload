@@ -16,9 +16,9 @@ ReactDOM.render(
 
   <HashRouter>
     <div className="index-app">
-      <Route exact path="/" component={ Index }/>
-      <Route exact path="/video" component={ Video }/>
-      <Route exact path="/download" component={ Download }/>
+      <Route exact path="/" component={ Index } />
+      <Route exact path="/video" component={ Video } />
+      <Route exact path="/download" component={ Download } />
     </div>
   </HashRouter>
 
