@@ -14,13 +14,13 @@ chromeDownloadInit(window._shareData);
 
 ReactDOM.render(
 
-    <HashRouter>
-      <div className="index-app">
-        <Route exact path="/" component={ Index }/>
-        <Route exact path="/video" component={ Video }/>
-        <Route exact path="/download" component={ Download }/>
-      </div>
-    </HashRouter>
+  <HashRouter>
+    <div className="index-app">
+      <Route exact path="/" component={ Index }/>
+      <Route exact path="/video" component={ Video }/>
+      <Route exact path="/download" component={ Download }/>
+    </div>
+  </HashRouter>
 
-    , document.getElementById('ReactBody')
+  , document.getElementById('ReactBody')
 );

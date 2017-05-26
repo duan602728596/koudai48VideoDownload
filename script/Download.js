@@ -81,17 +81,17 @@ class Progress extends Component{
 
   render() {
     return (
-        <div className="download-progressBox clearfix">
-          <div className="pull-left progress download-progress">
-            <div className="progress-bar progress-bar-success"
-                 style={{ width: this.state.w }}
-                 role="progressbar"
-                 aria-valuenow={ this.state.t }
-                 aria-valuemin="0"
-                 aria-valuemax="100"/>
-          </div>
-          <b className="pull-right download-progressNumber">{ this.state.t }%</b>
+      <div className="download-progressBox clearfix">
+        <div className="pull-left progress download-progress">
+          <div className="progress-bar progress-bar-success"
+               style={{width: this.state.w}}
+               role="progressbar"
+               aria-valuenow={ this.state.t }
+               aria-valuemin="0"
+               aria-valuemax="100"/>
         </div>
+        <b className="pull-right download-progressNumber">{ this.state.t }%</b>
+      </div>
     );
   }
 }
@@ -146,13 +146,13 @@ class Download extends Component{
     switch(item.state){
       case 1:
         return (
-            <tr className="active">
-              <td colSpan="4">
-                <Progress item={ item }
-                          index={ index }
-                          chromeCallback={ chromeCallback }/>
-              </td>
-            </tr>
+          <tr className="active">
+            <td colSpan="4">
+              <Progress item={ item }
+                        index={ index }
+                        chromeCallback={ chromeCallback }/>
+            </td>
+          </tr>
         );
     }
   }
@@ -162,43 +162,43 @@ class Download extends Component{
     const _this = this;
     return this.state.downloadList.map(function(item, index){
       return (
-          <tbody key={ index }>
-          <tr>
-            <td>{ item.infor.subTitle }</td>
-            <td>{ item.filename }</td>
-            <td>{ item.infor.streamPath }</td>
-            <td>{ _this.vState.call(_this, item) }</td>
-          </tr>
-          { _this.vProgress(item, index, _this.chromeCallback.bind(_this)) }
-          </tbody>
+        <tbody key={ index }>
+        <tr>
+          <td>{ item.infor.subTitle }</td>
+          <td>{ item.filename }</td>
+          <td>{ item.infor.streamPath }</td>
+          <td>{ _this.vState.call(_this, item) }</td>
+        </tr>
+        { _this.vProgress(item, index, _this.chromeCallback.bind(_this)) }
+        </tbody>
       );
     });
   }
 
   render(){
     return (
-        <div className="download">
-          <header className="bg-warning download-header clearfix">
-            <h4 className="pull-left">下载列表：</h4>
-            <Link className="pull-right btn btn-danger" to="/">
-              <span className="glyphicon glyphicon-off index-icon">{}</span>
-              <span>关闭</span>
-            </Link>
-          </header>
-          <div className="download-body">
-            <table className="table">
-              <thead>
-              <tr className="info">
-                <th className="download-table-td0">直播标题</th>
-                <th className="download-table-td1">文件名</th>
-                <th className="download-table-td2">视频地址</th>
-                <th className="download-table-td3">操作</th>
-              </tr>
-              </thead>
-              { this.downloadListView() }
-            </table>
-          </div>
+      <div className="download">
+        <header className="bg-warning download-header clearfix">
+          <h4 className="pull-left">下载列表：</h4>
+          <Link className="pull-right btn btn-danger" to="/">
+            <span className="glyphicon glyphicon-off index-icon">{}</span>
+            <span>关闭</span>
+          </Link>
+        </header>
+        <div className="download-body">
+          <table className="table">
+            <thead>
+            <tr className="info">
+              <th className="download-table-td0">直播标题</th>
+              <th className="download-table-td1">文件名</th>
+              <th className="download-table-td2">视频地址</th>
+              <th className="download-table-td3">操作</th>
+            </tr>
+            </thead>
+            { this.downloadListView() }
+          </table>
         </div>
+      </div>
     );
   }
 }

@@ -5,7 +5,7 @@ const { Link } = ReactRouterDom;
 
 
 class Video extends Component {
-  render(){
+  render() {
     const item = this.props.location.query ? this.props.location.query.item : {};
     return (
         <div>
