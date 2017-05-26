@@ -23,7 +23,7 @@ class Loading extends Component{
       );
     } else {
       return (
-          <div style={{ display: 'none' }}/>
+        <div style={{display: 'none'}}/>
       );
     }
   }
